@@ -1,59 +1,47 @@
-# nixvim-config/flake.nix
 {
-  description = "Nixvim config";
+  description = "nixvim config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixvim.url  = "github:nix-community/nixvim";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixvim.url = "github:nix-community/nixvim";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { self, nixpkgs, nixvim, ... }: {
-    # Export a Home-Manager module
-    homeManagerModules.default = { lib, pkgs, ... }: {
-      imports = [ nixvim.homeManagerModules.nixvim ];
+  outputs = {
+    nixvim,
+    flake-parts,
+    ...
+  } @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
 
-      programs.nixvim = {
-        enable = true;
-
-        # --- your config starts here ---
-        globals.mapleader = " ";
-        opts = {
-          number = true;
-          relativenumber = true;
-          shiftwidth = 2;
-          tabstop = 2;
-        };
-
-        extraPackages = with pkgs; [ ripgrep fd lazygit ];  # handy CLIs
-
-        colorschemes.tokyonight.enable = true;
-
-        plugins = {
-          treesitter.enable = true;
-          telescope.enable = true;
-          which-key.enable = true;
-
-          lsp = {
-            enable = true;
-            servers = {
-              rust_analyzer.enable = true;
-              lua_ls.enable = true;
-              clangd.enable = true;
-            };
-          };
-
-          cmp = {
-            enable = true;
-            sources = [ "nvim_lsp" "buffer" "path" ];
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: let
+        nixvimLib = nixvim.lib.${system};
+        nixvim' = nixvim.legacyPackages.${system};
+        nixvimModule = {
+          inherit pkgs;
+          module = import ./config; # import the module directly
+          extraSpecialArgs = {
           };
         };
+        nvim = nixvim'.makeNixvimWithModule nixvimModule;
+      in {
+        checks = {
+          # Run `nix flake check .` 
+          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+        };
 
-        keymaps = [
-          { mode = "n"; key = "<leader>ff"; action = "<cmd>Telescope find_files<CR>"; options.silent = true; }
-          { mode = "n"; key = "<leader>fg"; action = "<cmd>Telescope live_grep<CR>";  options.silent = true; }
-        ];
-        # --- your config ends here ---
+        packages = {
+          # Lets you run `nix run .` to start nixvim
+          default = nvim;
+        };
       };
     };
-  };
 }
