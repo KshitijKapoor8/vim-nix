@@ -5,11 +5,12 @@
     ./colorscheme.nix
     ./comment.nix
     ./conform.nix
-    ./dashboard.nix
+    ./alpha.nix
     ./lsp.nix
     ./mini.nix
     ./noice.nix
     ./snacks
+    ./trouble.nix
   ];
 
   plugins = {

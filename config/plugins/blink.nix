@@ -3,8 +3,6 @@
   pkgs,
   ...
 }:
-let
-in
 {
   extraPlugins = with pkgs.vimPlugins; [
     blink-cmp-copilot
