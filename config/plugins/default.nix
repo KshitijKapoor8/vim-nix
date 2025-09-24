@@ -19,5 +19,6 @@
     persistence.enable = true;
     notify.enable = true;
     "auto-session".enable = true;
+    treesitter.enable = true;
   };
 }
