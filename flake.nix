@@ -22,6 +22,7 @@
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
+        "arm64-apple-darwin"
         "aarch64-linux"
         "x86_64-linux"
         "aarch64-darwin"
@@ -59,7 +60,7 @@
             };
           };
 
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.nixpkgs-fmt;
 
           packages = {
             default = nvim;

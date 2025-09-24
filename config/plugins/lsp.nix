@@ -2,7 +2,7 @@
 {
   plugins = {
     lsp-format = {
-      enable = true;
+      enable = false;
     };
     lsp = {
       enable = true;
@@ -108,7 +108,7 @@
         dockerls.enable = true; # Docker
         bashls.enable = true; # Bash
         clangd.enable = true; # C/C++
-        csharp_ls.enable = true; # C#
+        # csharp_ls.enable = true; # C#
         markdown_oxide.enable = true; # Markdown
       };
 

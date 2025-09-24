@@ -33,6 +33,15 @@
       };
     }
     {
+      key = "<leader>/";
+      mode = [ "n" ];
+      action = "<cmd>lua Snacks.picker.grep()<CR>";
+      options = {
+        silent = true;
+        noremap = true;
+      };
+    }
+    {
       key = "<leader>gl";
       mode = [ "n" ];
       action = "<cmd>lua Snacks.picker.git_log()<CR>";
