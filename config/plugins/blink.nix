@@ -43,6 +43,17 @@
               name = "Ripgrep";
               module = "blink-ripgrep";
               score_offset = 1;
+              opts = {
+                prefix_min_len = 4;
+                backend = {
+                  use = "gitgrep-or-ripgrep";
+                };
+                ripgrep = {
+                  max_filesize = "200K";
+                  project_root_fallback = true;
+                };
+                debug = false;
+              };
             };
             dictionary = {
               name = "Dict";
