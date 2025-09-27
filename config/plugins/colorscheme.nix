@@ -1,5 +1,6 @@
 {
   colorschemes = {
-    oxocarbon.enable = true;
+    oxocarbon.enable = false;
+    catppuccin.enable = true;
   };
 }
