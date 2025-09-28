@@ -1,7 +1,7 @@
 {
   colorschemes = {
     oxocarbon.enable = false;
-    catppuccin.enable = true;
+    catppuccin.enable = false;
     kanagawa = {
       enable = true;
       theme = "dragon";
