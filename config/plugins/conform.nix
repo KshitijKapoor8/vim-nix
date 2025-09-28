@@ -20,6 +20,12 @@
           timeout_ms = 2000;
           stop_after_first = true;
         };
+        cpp = {
+          __unkeyed-1 = "clang-format";
+        };
+        c = {
+          __unkeyed-1 = "clang-format";
+        };
         # html = [
         #   [
         #     "prettierd"
