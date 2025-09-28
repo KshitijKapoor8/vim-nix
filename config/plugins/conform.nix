@@ -26,6 +26,12 @@
         c = {
           __unkeyed-1 = "clang-format";
         };
+
+        # rust = {
+        #   __unkeyed-1 = "rustfmt";
+        #   timeout_ms = 2000;
+        #   stop_after_first = true;
+        # };
         # html = [
         #   [
         #     "prettierd"
