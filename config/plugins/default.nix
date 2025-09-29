@@ -11,6 +11,7 @@
     ./noice.nix
     ./snacks
     ./trouble.nix
+    ./gitsigns.nix
   ];
 
   plugins = {
