@@ -1,5 +1,6 @@
 { self, ... }:
 {
+  waylandSupport = true;
   globalOpts = {
     # line number opts
     number = true;
@@ -68,4 +69,5 @@
 
   # set leader
   globals.mapleader = " ";
+
 }
