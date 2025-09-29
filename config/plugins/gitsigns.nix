@@ -5,22 +5,40 @@ _: {
       currentLineBlame = true;
       signs = {
         add = {
-          text = " ";
+          text = "▎";
         };
         change = {
-          text = " ";
+          text = "▎";
         };
         delete = {
-          text = " ";
-        };
-        untracked = {
-          text = "";
+          text = "";
         };
         topdelete = {
-          text = "󱂥 ";
+          text = "";
         };
         changedelete = {
-          text = "󱂧 ";
+          text = "▎";
+        };
+        untracked = {
+          text = "▎";
+        };
+      };
+
+      signs_staged = {
+        add = {
+          text = "▎";
+        };
+        change = {
+          text = "▎";
+        };
+        delete = {
+          text = "";
+        };
+        topdelete = {
+          text = "";
+        };
+        changedelete = {
+          text = "▎";
         };
       };
     };
