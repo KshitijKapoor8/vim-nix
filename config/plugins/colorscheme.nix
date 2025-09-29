@@ -6,7 +6,7 @@
       colorOverrides = {
         mocha = {
           base = "#111111";
-          mantle = "#222222";
+          mantle = "#111111";
         };
       };
     };
