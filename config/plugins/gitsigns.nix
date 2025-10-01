@@ -2,7 +2,7 @@ _: {
   plugins.gitsigns = {
     enable = true;
     settings = {
-      currentLineBlame = true;
+      # currentLineBlame = true;
       signs = {
         add = {
           text = "▎";
