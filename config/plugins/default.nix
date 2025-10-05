@@ -21,5 +21,6 @@
     notify.enable = true;
     "auto-session".enable = true;
     treesitter.enable = true;
+    "tmux-navigator".enable = true;
   };
 }
