@@ -9,10 +9,11 @@
   ];
 
   plugins = {
+    blink-copilot.enable = false;
+
     blink-cmp-dictionary.enable = true;
     blink-cmp-git.enable = true;
     blink-cmp-spell.enable = true;
-    blink-copilot.enable = false;
     blink-ripgrep.enable = true;
     blink-cmp = {
       enable = true;
@@ -33,10 +34,10 @@
             "path"
             "snippets"
             # Community
-            "dictionary"
-            "git"
-            "spell"
-            "ripgrep"
+            # "dictionary"
+            # "git"
+            # "spell"
+            # "ripgrep"
           ];
           providers = {
             ripgrep = {
@@ -44,12 +45,12 @@
               module = "blink-ripgrep";
               score_offset = 1;
               opts = {
-                prefix_min_len = 4;
+                prefix_min_len = 6;
                 backend = {
                   use = "gitgrep-or-ripgrep";
                 };
                 ripgrep = {
-                  max_filesize = "200K";
+                  max_filesize = "100K";
                   project_root_fallback = true;
                 };
                 debug = false;
@@ -58,7 +59,7 @@
             dictionary = {
               name = "Dict";
               module = "blink-cmp-dictionary";
-              min_keyword_length = 3;
+              min_keyword_length = 5;
             };
             lsp.score_offset = 4;
             spell = {

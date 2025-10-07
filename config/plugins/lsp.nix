@@ -76,25 +76,6 @@
           installCargo = true;
         };
 
-        # Spellcheck
-        harper_ls = {
-          enable = true;
-          settings.settings = {
-            "harper-ls" = {
-              linters = {
-                boring_words = true;
-                linking_verbs = true;
-                # Rarely useful with coding
-                sentence_capitalization = false;
-                spell_check = false;
-              };
-              codeActions = {
-                forceStable = true;
-              };
-            };
-          };
-        };
-
         ts_ls.enable = true; # TS/JS
         cssls.enable = true; # CSS
         tailwindcss.enable = true; # TailwindCSS
