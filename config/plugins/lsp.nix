@@ -63,6 +63,10 @@
           autostart = true;
         };
 
+        zls = {
+          enable = true;
+        };
+
         # Lua
         lua_ls = {
           enable = true;
